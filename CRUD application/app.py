@@ -18,7 +18,7 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.first
 
-Data=[{'first':'aman','last':'lajpal','email':'aman lajpal','social_handle':'@aman'},{'first':'aman','last':'lajpal','email':'aman lajpal','social_handle':'@aman'}]
+
 
 
 @app.route('/',methods=['GET','POST'])
@@ -32,7 +32,7 @@ def homepage():
         db.session.add(Users)
         db.session.commit()
     allusers=User.query.all()
-    return render_template('form.html',allusers=allusers,Data=Data)
+    return render_template('form.html',allusers=allusers)
 
 @app.route('/edit/<int:id>',methods=['GET','POST'])
 def edit(id):
